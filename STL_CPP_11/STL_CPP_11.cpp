@@ -3,15 +3,23 @@
 using namespace std;
 void any_of();
 void all_of();
+void none_of();
 
 int main()
 {
 	any_of();
 	all_of();	
-
+	none_of();
 
 
 	return 0;
+}
+
+void none_of() {
+	std::vector<int> v{ 5, 3, 7, 9, 4 }; 
+	auto lambda = [](int i) { return i > 10; };
+	bool noneGreaterThanTen = std::none_of(v.begin(), v.end(), lambda); // true
+	std::cout << "All vector not greater than 10 :" << noneGreaterThanTen << endl;
 }
 
 /*
