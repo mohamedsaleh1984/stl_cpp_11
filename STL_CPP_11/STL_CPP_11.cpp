@@ -30,6 +30,7 @@ void move();
 void move_backward();
 void swap();
 void swap_ranges();
+void iter_swap();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -70,9 +71,26 @@ int main(void)
 	move_backward();
 	swap();
 	swap_ranges();
-
+	iter_swap();
 	return 0;
 }
+
+/*
+	iter_swap
+	---------
+	Swap the values that two iterators point too
+*/
+void iter_swap() {
+	vec_int32 v{ 1, 2, 3, 4, 5 };
+	vec_int32_itr it1 = v.begin();		// Points to 1
+	vec_int32_itr it2 = v.end() - 1;	// Points to 4
+
+	std::iter_swap(it1, it2);			// v is now { 5 2 3 4 1 }
+	for_each(v.begin(), v.end(), [](int elem) {cout << elem << " "; });
+	cout << "\n";
+}
+
+
 /*
 	swap_ranges
 	-----------
