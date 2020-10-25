@@ -1,6 +1,9 @@
 #include "pch.h"
 using namespace std;
 
+void print_fun_heading(string funName);
+void print_fun_tailing();
+
 void any_of();
 void all_of();
 void none_of();
@@ -65,28 +68,32 @@ int main(void)
 	return 0;
 }
 /*
-	
+	move
+	-----
+	Move the elements from one range into another. The elements in the original range are valid, but may not be what they were before the move.
 */
 void move() {
-	
+	print_fun_heading("move");
 	std::vector<int> v1{ 1, 2, 3, 4 };
 	std::vector<int> v2(4);
+
+	//it will be pointing to 4
 	std::vector<int>::iterator it = std::move(v1.begin(), v1.end(), v2.begin());
+	//therefore, I had to set the iterator to the begining...
+	it = v2.begin();
 	while (it != v2.end()) {
 		cout << *it;
 		it++;
 	}
-
-	// v1 is { 1 2 3 4 } (It just happens to be unchanged.)
-	// v2 is { 1 2 3 4 }
-	// 'it' points to the element after 4 in v2.
-
+	print_fun_tailing();
 }
-void print_fun_heading(string funName) {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~ " << funName << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+
+void print_fun_heading(string funName) { 
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~ " << funName << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 void print_fun_tailing() {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 
 
