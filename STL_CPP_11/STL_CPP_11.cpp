@@ -22,6 +22,8 @@ void lexicographical_compare();
 void copy();
 void copy_n();
 void copy_if();
+void copy_backward();
+
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
 //vector of Integers
@@ -56,8 +58,29 @@ int main(void)
 	copy();
 	copy_n();
 	copy_if();
+	copy_backward();
+
+
 	return 0;
 }
+/*
+copy_backward
+-------------
+Copy the elements from one range into another, starting from the back elements and going to the front.
+*/
+void copy_backward() {
+	vec_int32 v1{ 1, 2, 3, 4 };
+	//init a vector with 4 elements
+	vec_int32 v2(2);
+	vec_int32_itr it = std::copy_backward(v1.begin()+2 , v1.end(), v2.end());
+
+	cout << "view copied items backward.. ";
+	auto print = [](int elem) { std::cout << elem << " "; };
+	// Prints each element in the container.
+	std::for_each(v2.begin(), v2.end(), print);
+	cout << endl;
+}
+
 /*
 	copy_if
 	-------
