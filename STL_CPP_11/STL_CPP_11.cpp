@@ -10,6 +10,7 @@ void find();
 void find_if();
 void find_if_not();
 void find_end();
+void findfirst_of();
 
 int main()
 {
@@ -21,9 +22,24 @@ int main()
 	find_if();
 	find_if_not();
 	find_end();
+	findfirst_of();
 	return 0;
 }
 
+/*
+	findfirst_of
+	-----------
+	find the first occurence of a sequence in that range.
+*/
+void findfirst_of() {
+	std::string s = "moo_cookies";
+	std::string t = "oo"; 
+	std::string::iterator it = std::find_first_of(s.begin(), s.end(), t.begin(), t.end());
+	if (it == s.end())
+		cout << "Not found..";
+	else
+		cout << "location (index):: " << it - s.begin() << endl;
+}
 /*
 	find_end
 	--------
