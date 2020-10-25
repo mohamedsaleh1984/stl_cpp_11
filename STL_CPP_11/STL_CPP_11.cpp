@@ -11,6 +11,7 @@ void find_if();
 void find_if_not();
 void find_end();
 void findfirst_of();
+void adjacent_find();
 
 int main()
 {
@@ -23,7 +24,25 @@ int main()
 	find_if_not();
 	find_end();
 	findfirst_of();
+	adjacent_find();
+
 	return 0;
+}
+
+
+/*
+	adjacent_find
+	-------------
+	Find the first occurrence of two consecutive elements that match in a range. (Ex. The “cc” in “accentt”.)
+*/
+void adjacent_find() {
+
+	std::string s = "accentt";
+	std::string::iterator it = std::adjacent_find(s.begin(), s.end()); // Points to the first 'c'
+	if (it == s.end())
+		cout << "Not found..";
+	else
+		cout << "location (index):: " << it - s.begin() << endl;
 }
 
 /*
