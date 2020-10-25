@@ -21,7 +21,7 @@ void search_n();
 void lexicographical_compare();
 void copy();
 void copy_n();
-
+void copy_if();
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
 //vector of Integers
@@ -55,10 +55,29 @@ int main(void)
 	lexicographical_compare();
 	copy();
 	copy_n();
-
+	copy_if();
 	return 0;
 }
+/*
+	copy_if
+	-------
+	Copy elements from one range into another if the condition we specify is met.
+*/
+void copy_if() {
+	std::vector<int> v1{ 1, 2, 3, 4 };
+	std::vector<int> v2(2); 
+	auto lambdaIsEven = [](int i) {
+		return i % 2 == 0; 
+	};
+	auto print = [](int i) {
+		cout << i << " ";
+	};
 
+	std::vector<int>::iterator it = std::copy_if(v1.begin(), v1.end(), v2.begin(), lambdaIsEven);
+	cout << "after copied even numbers" << endl;
+	for_each(v2.begin(), v2.end(), print);
+	cout << endl;
+}
 /*
 	copy_n
 	------
