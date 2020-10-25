@@ -13,6 +13,7 @@ void find_end();
 void findfirst_of();
 void adjacent_find();
 void count();
+void count_if();
 
 int main()
 {
@@ -27,12 +28,22 @@ int main()
 	findfirst_of();
 	adjacent_find();
 	count();
-
+	count_if();
 
 
 	return 0;
 }
-
+/*
+	count_if
+	-------
+	Count the number of occurrences satisfying the lambda function.
+*/
+void count_if() {
+	std::vector<int> v{ 5, 3, 7, 2, 1 };
+	auto lambda = [](int i) { return i > 2; };
+	int count = count_if(v.begin(), v.end(), lambda);
+	cout << "Number of elements greater than 2 :: " << count << endl;
+}
 /*
 	count
 	-----
