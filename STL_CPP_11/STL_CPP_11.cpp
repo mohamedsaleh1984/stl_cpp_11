@@ -33,6 +33,7 @@ void swap_ranges();
 void iter_swap();
 void transform();
 void replace();
+void replace_if();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -80,10 +81,24 @@ int main(void)
 	iter_swap();
 	transform();
 	replace();
+	replace_if();
 
 	return 0;
 }
 
+/*
+	replace_if
+	---------
+	For a range, replaces an element that passes a certain condition with a new value (that we specify).
+	(Ex. Replace all negative elements with a 0.)
+*/
+void replace_if() {
+	vec_int32 v{ 1, 2, 3, 4, 3, 5 };
+	//replaces every number greater than 1 with 11
+	std::replace_if(v.begin(), v.end(), [](int i) {return i > 1; }, 11);
+	for_each(v.begin(), v.end(), print);
+	cout << "\n";
+}
 /*
 	replace
 	-------
