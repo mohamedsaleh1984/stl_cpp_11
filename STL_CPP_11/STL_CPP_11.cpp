@@ -12,6 +12,7 @@ void find_if_not();
 void find_end();
 void findfirst_of();
 void adjacent_find();
+void count();
 
 int main()
 {
@@ -25,8 +26,23 @@ int main()
 	find_end();
 	findfirst_of();
 	adjacent_find();
+	count();
+
+
 
 	return 0;
+}
+
+/*
+	count
+	-----
+	count the occurrences of specific element in a collection.
+*/
+void count() {
+	std::vector<int> v{ 5, 3, 7, 9, 3, 4 };
+
+	int countOfThree = std::count(v.begin(), v.end(), 3); // 2
+	cout << "occurrences of 3 is :: " << countOfThree << endl;
 }
 
 
