@@ -55,6 +55,11 @@ int main(void)
 	return 0;
 }
 
+/*
+	lexicographical_compare
+	------------------------
+	Lexographically compare two items to find out which is ‘smaller’.
+*/
 void lexicographical_compare() {
 	char foo[] = "Apple";
 	char bar[] = "apartment";
