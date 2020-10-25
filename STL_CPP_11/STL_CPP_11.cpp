@@ -31,6 +31,8 @@ void move_backward();
 void swap();
 void swap_ranges();
 void iter_swap();
+void transform();
+void replace();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -40,6 +42,10 @@ typedef vector<int> vec_int32;
 typedef vector<int> vec_char;
 //vector of Chars Iterator.
 typedef vector<char>::iterator vec_char_itr;
+
+auto print = [](int d) {
+	cout << d << " ";
+};
 
 int main(void)
 {
@@ -72,9 +78,56 @@ int main(void)
 	swap();
 	swap_ranges();
 	iter_swap();
+	transform();
+	replace();
+
 	return 0;
 }
 
+/*
+	replace
+	-------
+	For a range, replaces an old value (that we specify) with a new value (that we specify). (Ex. Replace all 3’s with 7's.)
+*/
+void replace() {
+	vec_int32 v{ 1, 2, 3, 4, 3, 5 };
+	//replaces every 3 with 7
+	std::replace(v.begin(), v.end(), 3, 7);// res is now { 1 2 7 4 7 5 }
+	for_each(v.begin(), v.end(), print);
+	cout << "\n";
+}
+
+/*
+	transform
+	---------
+	Given one or two ranges, performs an operation on each value of the range and stores that result in another range.
+	(For example, multiply each value in a vector by some number and store it in another vector. Or add each value in 
+	two vectors and put that into another vector.)
+*/
+void transform() {
+	//Example with just one range :
+	vec_int32 v{ 1, 2, 3, 4, 5 };
+	vec_int32 res(5);
+	auto lambdaAddOne = [](int i) { return i + 1; };
+	
+	vec_int32_itr it = std::transform(v.begin(), v.end(), res.begin(), lambdaAddOne);
+	// res is { 2 3 4 5 6 }
+	for_each(res.begin(), res.end(),print);
+	
+	//Example with two ranges :
+	vec_int32 v1{ 1, 2, 3 };
+	vec_int32 v2{ 4, 5, 6 };
+	res.resize(3);
+	
+	auto lambdaMultiply = [](int i, int j) {
+		return i * j;
+	};
+	cout << "\n";
+	 it = std::transform(v1.begin(), v1.end(), v2.begin(), res.begin(), lambdaMultiply);
+	// res is { 4 10 18 }
+	for_each(res.begin(), res.end(), print);
+	cout << "\n";
+}
 /*
 	iter_swap
 	---------
