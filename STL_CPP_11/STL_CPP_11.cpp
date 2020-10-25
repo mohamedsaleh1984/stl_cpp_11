@@ -21,7 +21,8 @@ void equal();
 typedef vector<int>::iterator vi;
 //vector of Integers
 typedef vector<int> vec_int32;
-
+//vector of Chars
+typedef vector<int> vec_char;
 
 int main()
 {
@@ -39,9 +40,23 @@ int main()
 	count_if();
 	mismatch();
 	equal();
-
+	is_permutation();
 	return 0;
 }
+/*
+	is_permutation
+	--------------
+	Check if a range is a permutation of another.
+*/
+void is_permutation() {
+	vec_char v1{ 'g', 'o', 'd' };
+	vec_char v2{ 'd', 'o', 'g' };
+
+	bool isPermutation = std::is_permutation(v1.begin(), v1.end(), v2.begin()); 
+
+	cout << "Are the vectors isPermutation of each others :: " << isPermutation << endl;
+}
+
 
 /*
 	equal
