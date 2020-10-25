@@ -13,5 +13,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <functional>
 
 #endif //PCH_H
