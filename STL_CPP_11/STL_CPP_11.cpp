@@ -23,6 +23,7 @@ void copy();
 void copy_n();
 void copy_if();
 void copy_backward();
+void move();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -59,10 +60,36 @@ int main(void)
 	copy_n();
 	copy_if();
 	copy_backward();
-
+	move();
 
 	return 0;
 }
+/*
+	
+*/
+void move() {
+	
+	std::vector<int> v1{ 1, 2, 3, 4 };
+	std::vector<int> v2(4);
+	std::vector<int>::iterator it = std::move(v1.begin(), v1.end(), v2.begin());
+	while (it != v2.end()) {
+		cout << *it;
+		it++;
+	}
+
+	// v1 is { 1 2 3 4 } (It just happens to be unchanged.)
+	// v2 is { 1 2 3 4 }
+	// 'it' points to the element after 4 in v2.
+
+}
+void print_fun_heading(string funName) {
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~ " << funName << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+}
+void print_fun_heading(std::string funName) {
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+}
+
+
 /*
 copy_backward
 -------------
