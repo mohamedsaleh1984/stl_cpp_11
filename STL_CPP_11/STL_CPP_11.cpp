@@ -96,7 +96,6 @@ void iter_swap() {
 	-----------
 	Given two ranges, swaps the items in them(using the swap function).
 */
-
 void swap_ranges() {
 	std::vector<int> v1{ 1, 2, 3, 4 };
 	std::vector<int> v2{ 5, 6, 7, 8 }; 
