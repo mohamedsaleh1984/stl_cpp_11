@@ -18,6 +18,7 @@ void mismatch();
 void equal();
 void is_permutation();
 void search();
+void search_n();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -45,9 +46,26 @@ int main()
 	equal();
 	is_permutation();
 	search();
-
+	search_n();
 	return 0;
 }
+
+/*
+	search_n
+	--------
+
+*/
+void search_n() {
+	std::vector<char> v{ 'e', 's', 't', 'e', 'e', 'm' };
+
+	std::vector<char>::iterator it = std::search_n(v.begin(), v.end(), 2, 'e');
+	// Points to the 'e' after the 't'.
+	if (it != v.end())
+		std::cout << "two es found at position " << (it - v.begin()) << '\n';
+	else
+		std::cout << "match not found\n";
+}
+
 /*
 	Search range for subsequence
 	------
@@ -83,8 +101,6 @@ void search() {
 		std::cout << "needle2 found at position " << (it - haystack.begin()) << '\n';
 	else
 		std::cout << "needle2 not found\n";
-
-
 }
 
 /*
