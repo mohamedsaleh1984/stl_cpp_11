@@ -65,14 +65,22 @@ int main(void)
 	Copy the first n elements from one range into another.
 */
 void copy_n() {
-	vec_int32 v1{ 1, 2, 3, 4 };
-	vec_int32 v2(2); 
-	vec_int32_itr it = std::copy_n(v1.begin(), 2, v2.begin());// v2 is { 1 2 }
-	while (it != v2.end())
-	{
-		cout << *it;
-		it++;
-	}
+	vec_int32 myints { 10,20,30,40,50,60,70 };
+	vec_int32 myvector;
+
+	myvector.resize(3);   // allocate space for 7 elements
+	
+	std::copy_n(myints.begin(),3, myvector.begin());
+
+	std::cout << "myvector contains:";
+
+	auto print = [](int elem) {
+		cout << elem << " ";
+	};
+	for_each(myvector.begin(), myvector.end(), print);
+
+	std::cout << '\n';
+/*	*/
 }
 
 /*
