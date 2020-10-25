@@ -15,9 +15,13 @@ void adjacent_find();
 void count();
 void count_if();
 void mismatch();
+void equal();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vi;
+//vector of Integers
+typedef vector<int> vec_int32;
+
 
 int main()
 {
@@ -34,8 +38,21 @@ int main()
 	count();
 	count_if();
 	mismatch();
+	equal();
 
 	return 0;
+}
+
+/*
+	equal
+	-----
+	Check if the elements in two ranges are equal.
+*/
+void equal() {
+	vec_int32 v1{ 5, 4, 6 };
+	vec_int32 v2{ 5, 4, 6 }; 
+	bool isEqual = std::equal(v1.begin(), v1.end(), v2.begin()); // true
+	cout << "Are the vectors equal :: " << isEqual << endl;
 }
 /*
 	mismatch
