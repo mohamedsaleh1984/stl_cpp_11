@@ -1,5 +1,4 @@
 #include "pch.h"
-#include <iostream>
 using namespace std;
 
 void any_of();
@@ -19,6 +18,7 @@ void equal();
 void is_permutation();
 void search();
 void search_n();
+void lexicographical_compare();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -28,8 +28,11 @@ typedef vector<int> vec_int32;
 typedef vector<int> vec_char;
 //vector of Chars Iterator.
 typedef vector<char>::iterator vec_char_itr;
-int main()
+
+int main(void)
 {
+	std::cout << std::boolalpha;
+
 	any_of();
 	all_of();
 	none_of();
@@ -47,13 +50,38 @@ int main()
 	is_permutation();
 	search();
 	search_n();
+	lexicographical_compare();
+
 	return 0;
+}
+
+void lexicographical_compare() {
+	char foo[] = "Apple";
+	char bar[] = "apartment";
+
+	auto mycomp = [](char c1,char c2) {
+		return std::tolower(c1) < std::tolower(c2);
+	};
+
+	
+
+	std::cout << "Comparing foo and bar lexicographically (foo<bar):\n";
+
+	std::cout << "Using default comparison (operator<): ";
+	std::cout << std::lexicographical_compare(foo, foo + 5, bar, bar + 9);
+	std::cout << '\n';
+
+	std::cout << "Using mycomp as comparison object: ";
+	std::cout << std::lexicographical_compare(foo, foo + 5, bar, bar + 9, mycomp);
+	std::cout << '\n';
+
+
 }
 
 /*
 	search_n
 	--------
-
+	find number of consequtive occurances. 
 */
 void search_n() {
 	std::vector<char> v{ 'e', 's', 't', 'e', 'e', 'm' };

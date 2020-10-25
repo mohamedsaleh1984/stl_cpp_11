@@ -10,9 +10,10 @@
 #define PCH_H
 
 // TODO: add headers that you want to pre-compile here
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <functional>
-
+#include <cctype>
 #endif //PCH_H
