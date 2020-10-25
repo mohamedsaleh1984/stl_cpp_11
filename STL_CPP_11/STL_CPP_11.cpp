@@ -4,17 +4,37 @@ using namespace std;
 void any_of();
 void all_of();
 void none_of();
+void for_each();
 
 int main()
 {
 	any_of();
 	all_of();	
 	none_of();
-
+	for_each();
 
 	return 0;
 }
+/*
+	foreach
+	-------
+	Does something for each item in a range.
+*/
+void for_each() {
+	std::vector<int> v{ 5, 3, 7, 2, 1 }; 
+	auto lambda = [](int i) { std::cout << i << " "; };
+	auto add_seven_print = [](int elem) { std::cout << elem + 7 << " "; };
+	// Prints each element in the container.
+	std::for_each(v.begin(), v.end(), lambda); 
+	// Adding 7 and print each element in the container.
+	std::for_each(v.begin(), v.end(), add_seven_print);
+}
 
+/*
+	none_of
+	-------
+	Check if none of the elements in the range satisfies the condition.
+*/
 void none_of() {
 	std::vector<int> v{ 5, 3, 7, 9, 4 }; 
 	auto lambda = [](int i) { return i > 10; };
