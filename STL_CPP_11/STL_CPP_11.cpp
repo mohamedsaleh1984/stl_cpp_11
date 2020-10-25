@@ -20,6 +20,7 @@ void search();
 void search_n();
 void lexicographical_compare();
 void copy();
+void copy_n();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -53,11 +54,29 @@ int main(void)
 	search_n();
 	lexicographical_compare();
 	copy();
+	copy_n();
+
 	return 0;
 }
 
 /*
-	Copy
+	copy_n
+	------
+	Copy the first n elements from one range into another.
+*/
+void copy_n() {
+	vec_int32 v1{ 1, 2, 3, 4 };
+	vec_int32 v2(2); 
+	vec_int32_itr it = std::copy_n(v1.begin(), 2, v2.begin());// v2 is { 1 2 }
+	while (it != v2.end())
+	{
+		cout << *it;
+		it++;
+	}
+}
+
+/*
+	copy
 	----
 	Copy the elements from one range into another.
 */
