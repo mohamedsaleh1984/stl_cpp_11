@@ -19,6 +19,7 @@ void is_permutation();
 void search();
 void search_n();
 void lexicographical_compare();
+void copy();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -51,8 +52,27 @@ int main(void)
 	search();
 	search_n();
 	lexicographical_compare();
-
+	copy();
 	return 0;
+}
+
+/*
+	Copy
+	----
+	Copy the elements from one range into another.
+*/
+void copy() {
+	vec_int32 v1{ 1, 2, 3, 4 };
+	//init a vector with 4 elements
+	vec_int32 v2(3);
+
+	vec_int32_itr it = std::copy(v1.begin()+1, v1.end(), v2.begin());// v2 is { 1 2 3 4 }
+
+	cout << "view copied items.. ";
+	auto print = [](int elem) { std::cout << elem << " "; };
+	// Prints each element in the container.
+	std::for_each(v2.begin(), v2.end(), print);
+	cout << endl;
 }
 
 /*
