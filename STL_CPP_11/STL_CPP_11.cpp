@@ -29,6 +29,7 @@ void copy_backward();
 void move();
 void move_backward();
 void swap();
+void swap_ranges();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -68,10 +69,32 @@ int main(void)
 	move();
 	move_backward();
 	swap();
+	swap_ranges();
+
 	return 0;
 }
 /*
-	
+	swap_ranges
+	-----------
+	Given two ranges, swaps the items in them(using the swap function).
+*/
+
+void swap_ranges() {
+	std::vector<int> v1{ 1, 2, 3, 4 };
+	std::vector<int> v2{ 5, 6, 7, 8 }; 
+	std::vector<int>::iterator it = std::swap_ranges(v1.begin(), v1.end(), v2.begin());// v1 is { 5 6 7 8 }
+	// v2 is { 1 2 3 4 }
+	// 'it' points to the element after 4 in v2.
+	for_each(v1.begin(), v1.end(), [](int elem) {cout << elem << " "; });
+	cout << "\n";
+	for_each(v2.begin(), v2.end(), [](int elem) {cout << elem << " "; });
+	cout << "\n";
+}
+
+/*
+	swap
+	----
+	Swaps the values of two items.
 */
 void swap() {
 	int a = 5;
@@ -92,7 +115,7 @@ void move_backward() {
 	for_each(v2.begin(), v2.end(), [](int elem) {
 		cout << elem << " ";
 		});
-	
+	cout << endl;
 }
 
 /*
