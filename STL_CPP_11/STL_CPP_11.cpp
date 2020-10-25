@@ -68,7 +68,7 @@ void copy_n() {
 	vec_int32 myints { 10,20,30,40,50,60,70 };
 	vec_int32 myvector;
 
-	myvector.resize(3);   // allocate space for 7 elements
+	myvector.resize(3);   // allocate space for 3 elements
 	
 	std::copy_n(myints.begin(),3, myvector.begin());
 
@@ -77,8 +77,14 @@ void copy_n() {
 	auto print = [](int elem) {
 		cout << elem << " ";
 	};
+
 	for_each(myvector.begin(), myvector.end(), print);
 
+	//another example
+	std::copy_n(myints.begin()+2, 3, myvector.begin());
+	cout << endl;
+	std::cout << "myvector contains:";
+	for_each(myvector.begin(), myvector.end(), print);
 	std::cout << '\n';
 /*	*/
 }
