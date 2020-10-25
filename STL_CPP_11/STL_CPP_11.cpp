@@ -14,6 +14,10 @@ void findfirst_of();
 void adjacent_find();
 void count();
 void count_if();
+void mismatch();
+
+//vector of Integers Iterator.
+typedef vector<int>::iterator vi;
 
 int main()
 {
@@ -29,10 +33,27 @@ int main()
 	adjacent_find();
 	count();
 	count_if();
-
+	mismatch();
 
 	return 0;
 }
+/*
+	mismatch
+	--------
+	Finds the first occurrence where two rangers differ
+*/
+void mismatch() {
+	std::vector<int> v1{ 5, 3, 7, 9 };
+	std::vector<int> v2{ 5, 3, 2, 9 };
+
+	pair<vi,vi> p = std::mismatch(v1.begin(), v1.end(), v2.begin());
+	
+	int element1 = *p.first; // 7
+	int element2 = *p.second; // 2
+
+	cout << "The start elements where the two vectors are not matching :: " << element1 << ", " << element2 << endl;
+}
+
 /*
 	count_if
 	-------
