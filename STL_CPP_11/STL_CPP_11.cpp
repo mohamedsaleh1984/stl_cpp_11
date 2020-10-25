@@ -85,7 +85,7 @@ void move() {
 void print_fun_heading(string funName) {
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~ " << funName << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
-void print_fun_heading(std::string funName) {
+void print_fun_tailing(std::string funName) {
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 
