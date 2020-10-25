@@ -7,6 +7,8 @@ void all_of();
 void none_of();
 void for_each();
 void find();
+void find_if();
+
 
 int main()
 {
@@ -15,8 +17,24 @@ int main()
 	none_of();
 	for_each();
 	find();
+	find_if();
+
 	return 0;
 }
+
+/*
+	find_if
+	Find the first item that satisfies a condition.
+*/
+void find_if() {
+	std::vector<int> v{ 5, 3, 7, 9, 4 };
+
+	auto lambda = [](int i) { return i > 6; }; 
+	std::vector<int>::iterator it = std::find_if(v.begin(), v.end(), lambda); 
+	int firstElementGreaterThanSix = *it; // 7
+	cout << firstElementGreaterThanSix << endl;
+}
+
 /*
 	find
 	----
@@ -27,7 +45,7 @@ void find() {
 
 	std::vector<int>::iterator it = std::find(v.begin(), v.end(), 3);
 	cout << "location (index)::" << it-v.begin() << endl;
-	cout << "value ::" << *it << endl;
+	cout << "Value ::" << *it << endl;
 }
 
 /*
