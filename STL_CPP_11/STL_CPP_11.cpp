@@ -1,10 +1,12 @@
 #include "pch.h"
 #include <iostream>
 using namespace std;
+
 void any_of();
 void all_of();
 void none_of();
 void for_each();
+void find();
 
 int main()
 {
@@ -12,9 +14,22 @@ int main()
 	all_of();	
 	none_of();
 	for_each();
-
+	find();
 	return 0;
 }
+/*
+	find
+	----
+	Find an item in a given range.
+*/
+void find() {
+	std::vector<int> v{ 5, 3, 7, 9, 4 };
+
+	std::vector<int>::iterator it = std::find(v.begin(), v.end(), 3);
+	cout << "location (index)::" << it-v.begin() << endl;
+	cout << "value ::" << *it << endl;
+}
+
 /*
 	foreach
 	-------
@@ -26,8 +41,10 @@ void for_each() {
 	auto add_seven_print = [](int elem) { std::cout << elem + 7 << " "; };
 	// Prints each element in the container.
 	std::for_each(v.begin(), v.end(), lambda); 
+	cout << endl;
 	// Adding 7 and print each element in the container.
 	std::for_each(v.begin(), v.end(), add_seven_print);
+	cout << endl;
 }
 
 /*
