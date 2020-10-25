@@ -27,6 +27,8 @@ void copy_n();
 void copy_if();
 void copy_backward();
 void move();
+void move_backward();
+void swap();
 
 //vector of Integers Iterator.
 typedef vector<int>::iterator vec_int32_itr;
@@ -64,16 +66,41 @@ int main(void)
 	copy_if();
 	copy_backward();
 	move();
-
+	move_backward();
+	swap();
 	return 0;
 }
+/*
+	
+*/
+void swap() {
+	int a = 5;
+	int b = 10;
+	std::swap(a, b); // Now a = 10 and b = 5.
+}
+/*
+	move_backward
+	-------------
+	Move the elements from one range into another, starting from the back elements and going to the front. The elements in the original range are valid, but may not be what they were before the move.
+*/
+void move_backward() {
+	vec_int32 v1{ 1, 2, 3, 4 };
+	vec_int32 v2(4);
+	vec_int32_itr it = std::move_backward(v1.begin(), v1.end(), v2.end());
+	// v1 is { 1 2 3 4 } (It just happens to be unchanged.)
+
+	for_each(v2.begin(), v2.end(), [](int elem) {
+		cout << elem << " ";
+		});
+	
+}
+
 /*
 	move
 	-----
 	Move the elements from one range into another. The elements in the original range are valid, but may not be what they were before the move.
 */
 void move() {
-	print_fun_heading("move");
 	std::vector<int> v1{ 1, 2, 3, 4 };
 	std::vector<int> v2(4);
 
@@ -85,7 +112,7 @@ void move() {
 		cout << *it;
 		it++;
 	}
-	print_fun_tailing();
+	cout << endl;
 }
 
 
