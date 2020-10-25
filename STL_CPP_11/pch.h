@@ -11,6 +11,7 @@
 
 // TODO: add headers that you want to pre-compile here
 #include <vector>
+#include <string>
 #include <algorithm>
 
 #endif //PCH_H

@@ -8,7 +8,8 @@ void none_of();
 void for_each();
 void find();
 void find_if();
-
+void find_if_not();
+void find_end();
 
 int main()
 {
@@ -18,10 +19,41 @@ int main()
 	for_each();
 	find();
 	find_if();
-
+	find_if_not();
+	find_end();
 	return 0;
 }
 
+/*
+	find_end
+	--------
+	find the last occurence of a sequence in that range
+*/
+void find_end() {
+	std::string s = "moo_cookies";
+	std::string t = "kies"; 
+	std::string::iterator it = std::find_end(s.begin(), s.end(), t.begin(), t.end());
+	if (it == s.end())
+		cout << "Not found..";
+	else
+		cout << "location (index):: " << it - s.begin() << endl;
+}
+
+/*
+	find_if_not
+	Find the first item that does not satisfy a condition.
+*/
+void find_if_not()
+{
+	std::vector<int> v{ 5, 3, 7, 9, 4 };
+	auto lambda = [](int i) {
+		return i > 6; 
+	}; 
+	
+	std::vector<int>::iterator it = std::find_if_not(v.begin(), v.end(), lambda);
+	int firstElementLessThanSix = *it; // 5
+	cout << "first element less than 6: " << firstElementLessThanSix << endl;
+}
 /*
 	find_if
 	Find the first item that satisfies a condition.
@@ -32,7 +64,7 @@ void find_if() {
 	auto lambda = [](int i) { return i > 6; }; 
 	std::vector<int>::iterator it = std::find_if(v.begin(), v.end(), lambda); 
 	int firstElementGreaterThanSix = *it; // 7
-	cout << firstElementGreaterThanSix << endl;
+	cout << "first element greater than 6: " << firstElementGreaterThanSix << endl;
 }
 
 /*
@@ -44,8 +76,8 @@ void find() {
 	std::vector<int> v{ 5, 3, 7, 9, 4 };
 
 	std::vector<int>::iterator it = std::find(v.begin(), v.end(), 3);
-	cout << "location (index)::" << it-v.begin() << endl;
-	cout << "Value ::" << *it << endl;
+	cout << "location (index):: " << it-v.begin() << endl;
+	cout << "Value :: " << *it << endl;
 }
 
 /*
@@ -74,7 +106,7 @@ void none_of() {
 	std::vector<int> v{ 5, 3, 7, 9, 4 }; 
 	auto lambda = [](int i) { return i > 10; };
 	bool noneGreaterThanTen = std::none_of(v.begin(), v.end(), lambda); // true
-	std::cout << "All vector not greater than 10 :" << noneGreaterThanTen << endl;
+	std::cout << "All vector not greater than 10 : " << noneGreaterThanTen << endl;
 }
 
 /*
